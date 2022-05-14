@@ -1378,7 +1378,7 @@ public class Compression {
         c = b;
         b = a;
         a=Add2.add1(ravi64,temp2a64);
-     //   calculate2.printArray(h);
+//        calculate2.printArray(h);
 //        System.out.print("a ");
 //        calculate2.printArray(a);
 //        System.out.print("b ");
@@ -1412,6 +1412,7 @@ public class Compression {
         h7=Add2.add1(h7,h);
 //        System.out.println("************************************");
 //        calculate2.printArray(h0);
+////        System.out.println(h0.length);
 //        calculate2.printArray(h1);
 //        calculate2.printArray(h2);
 //        calculate2.printArray(h3);
@@ -1445,7 +1446,8 @@ public class Compression {
         String RR2=RAVI1[1];
         String RR3=RAVI1[2];
         String RR4=RAVI1[3];
-        String RR5=RAVI2[1];
+        String RR5=RAVI2[0];
+//        System.out.println(RR5);
         String RR6=RAVI2[1];
         String RR7=RAVI2[2];
         String RR8=RAVI2[3];
@@ -1458,6 +1460,7 @@ public class Compression {
         String RR15=RAVI4[2];
         String RR16=RAVI4[3];
         String RR17=RAVI5[0];
+//        System.out.println(RR17);
         String RR18=RAVI5[1];
         String RR19=RAVI5[2];
         String RR20=RAVI5[3];
@@ -1473,43 +1476,13 @@ public class Compression {
         String RR30=RAVI8[1];
         String RR31=RAVI8[2];
         String RR32=RAVI8[3];
-//
-//        System.out.println("heaxa");
-//        System.out.println("Output: "+Integer.parseInt(RR1,2));
 
-        System.out.print(decimalToHex(Integer.parseInt(RR1)));
-        System.out.print(decimalToHex(Integer.parseInt(RR2)));
-        System.out.print(decimalToHex(Integer.parseInt(RR3)));
-        System.out.print(decimalToHex(Integer.parseInt(RR4)));
-        System.out.print(decimalToHex(Integer.parseInt(RR5)));
-        System.out.print(decimalToHex(Integer.parseInt(RR6)));
-        System.out.print(decimalToHex(Integer.parseInt(RR7)));
-        System.out.print(decimalToHex(Integer.parseInt(RR8)));
-        System.out.print(decimalToHex(Integer.parseInt(RR9)));
-        System.out.print(decimalToHex(Integer.parseInt(RR10)));
-        System.out.print(decimalToHex(Integer.parseInt(RR11)));
-        System.out.print(decimalToHex(Integer.parseInt(RR12)));
-        System.out.print(decimalToHex(Integer.parseInt(RR13)));
-        System.out.print(decimalToHex(Integer.parseInt(RR14)));
-        System.out.print(decimalToHex(Integer.parseInt(RR15)));
-        System.out.print(decimalToHex(Integer.parseInt(RR16)));
-        System.out.print(decimalToHex(Integer.parseInt(RR17)));
-        System.out.print(decimalToHex(Integer.parseInt(RR18)));
-        System.out.print(decimalToHex(Integer.parseInt(RR19)));
-        System.out.print(decimalToHex(Integer.parseInt(RR20)));
-        System.out.print(decimalToHex(Integer.parseInt(RR21)));
-        System.out.print(decimalToHex(Integer.parseInt(RR22)));
-        System.out.print(decimalToHex(Integer.parseInt(RR23)));
-        System.out.print(decimalToHex(Integer.parseInt(RR24)));
-        System.out.print(decimalToHex(Integer.parseInt(RR25)));
-        System.out.print(decimalToHex(Integer.parseInt(RR26)));
-        System.out.print(decimalToHex(Integer.parseInt(RR27)));
-        System.out.print(decimalToHex(Integer.parseInt(RR28)));
-        System.out.print(decimalToHex(Integer.parseInt(RR29)));
-        System.out.print(decimalToHex(Integer.parseInt(RR30)));
-        System.out.print(decimalToHex(Integer.parseInt(RR31)));
-        System.out.print(decimalToHex(Integer.parseInt(RR32)));
-//        BinaryToHexaDecimals(Integer.parseInt(RR2));
+        String [] RAVI256={RR1,RR2,RR3,RR4,RR5,RR6,RR7,RR8,RR9,RR10,RR11,RR12,RR13,RR14,RR15,RR16,RR17,RR18,RR19,RR20,RR21,RR22,RR23,RR24,RR25,RR26,RR27,RR28,RR29,RR30,RR31,RR32};
+//        System.out.println(RR31);
+        for (int i = 0; i <32 ; i++) {
+            System.out.print(decimalToHex(Integer.parseInt(RAVI256[i])));
+        }
+
         return ravi2;
     }
 
@@ -1633,7 +1606,13 @@ public class Compression {
             hexNumber = hexNumber.toUpperCase();
 
             // returning the final hex string
-            return hexNumber.toLowerCase();
+            if(hexNumber.length()==1){
+                return "0"+hexNumber.toLowerCase();
+
+            } else if (hexNumber.length()==2) {
+                return hexNumber.toLowerCase();
+            }
+            return "ravi";
         }
 //        String hexa = Integer.toHexString(num);
 //        System.out.println("HexaDecimal Value is : " + hexa);
